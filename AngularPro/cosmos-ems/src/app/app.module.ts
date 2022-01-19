@@ -7,6 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { LkrFormatterPipe } from './shared/lkr-formatter.pipe';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
 import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -20,7 +21,13 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path:'employees',component:EmployeesComponent},
+      {path:'home',component:HomeComponent},
+      {path:'',redirectTo:'home',pathMatch:'full'}
+  
+  ])
   ],
   providers: [],
   bootstrap: [AppComponent]
